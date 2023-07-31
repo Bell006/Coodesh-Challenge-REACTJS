@@ -24,7 +24,7 @@ export function Results() {
     }
 
     function handleTotal() {
-        const total = transactions.reduce((acc, transaction) => {
+        let total = transactions.reduce((acc, transaction) => {
           const value = parseInt(transaction.value);
           if (transaction.type == 3) {
             return acc;
@@ -32,8 +32,10 @@ export function Results() {
             return acc + value; 
           }
         }, 0);
+
+        total = total/100;
       
-        return total;
+        return total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     }
 
     const total = handleTotal();
@@ -86,7 +88,7 @@ export function Results() {
                 
                 <section>
                     <div className="total">
-                        <p>{`Total: R$${(total/100)}`}</p>
+                        <p>{`Total: R$${(total)}`}</p>
                     </div>
                     <Button title="Novo cadastro" onClick={handleBack}></Button>
                 </section>
