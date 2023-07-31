@@ -88,7 +88,7 @@ export function Results() {
                 
                 <section>
                     <div className="total">
-                        <p>{`Total: R$${(total)}`}</p>
+                        <p>{`Total: ${(total)}`}</p>
                     </div>
                     <Button title="Novo cadastro" onClick={handleBack}></Button>
                 </section>
